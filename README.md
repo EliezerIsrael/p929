@@ -1,6 +1,6 @@
 # p929
 
-Tools for the [Project 929](http://929.org.il) chapter-a-day reading of Tanach.
+A python module with tools for the [Project 929](http://929.org.il) chapter-a-day reading of Tanach.
 Get the Perek for today, or any other day, and then data and URLs for that Perek. 
 
 (Note - this code is not an official 929 project.)
