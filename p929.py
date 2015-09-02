@@ -27,7 +27,7 @@ origin = datetime.date(2014, 12, 20)
 
 """
 "books" is taken from the indexes of http://sefaria.org, with:
->>> from model import *
+>>> from sefaria.model import *
 >>> category = "Tanach"
 >>> q = {"$and": [{"categories": category}, {"categories": {"$ne": "Commentary"}}, {"categories": {"$ne": "Commentary2"}}, {"categories": {"$ne": "Targum"}}]}
 >>> [(i.title, i.nodes.lengths[0]) for i in IndexSet(q)]
