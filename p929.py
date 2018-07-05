@@ -70,8 +70,9 @@ class Perek(object):
 
         self.number = int((weeks * 5) + days)
 
-        #future proof?
-        #self.number = self.number % 929
+        self.number = self.number % 929
+        if self.number == 0:
+            self.number = 929
 
         for interval in intervals:
             if interval[0] < self.number <= interval[1]:
