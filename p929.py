@@ -23,7 +23,7 @@ import math
 
 # Genesis 1 was read on Sunday, December 21, 2014
 # We set the origin date one day before
-origin = datetime.date(2014, 12, 20)
+origins = [datetime.date(2014, 12, 20), datetime.date(2018, 07, 14)]
 
 """
 "books" is taken from the indexes of http://sefaria.org, with:
@@ -60,18 +60,24 @@ class Perek(object):
     'Psalms 53'
     """
 
-    def __init__(self, date=datetime.date.today()):
+    def __init__(self, date=datetime.date.today(), strict=False):
         self.date = date
-        delta = self.date - origin
+        for origin in origins:
+            delta = self.date - origin
 
-        weeks = math.floor(delta.days / 7.0)
-        days = delta.days % 7
-        days = 5 if days > 5 else days
+            weeks = math.floor(delta.days / 7.0)
+            days = delta.days % 7
+            weekdays = 5 if days > 5 else days # chapters are only read Sunday through Thursday
 
-        self.number = int((weeks * 5) + days)
+            self.number = int((weeks * 5) + weekdays)
 
-        #future proof?
-        #self.number = self.number % 929
+            if self.number <= 929:
+                break
+
+        if self.number <= 0:
+            raise ValueError("The reading cycle has not started yet")
+        elif strict and (days == 0 or days == 6):
+            raise ValueError("There is no 929 reading on Fridays and Saturdays")
 
         for interval in intervals:
             if interval[0] < self.number <= interval[1]:
