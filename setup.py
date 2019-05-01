@@ -1,6 +1,6 @@
 from distutils.core import setup
 setup(name='p929',
-      version='0.4',
+      version='0.5',
       description='Tools for the Project 929 chapter-a-day Tanach learning project',
       py_modules=['p929'],
       author='Lev Israel',
