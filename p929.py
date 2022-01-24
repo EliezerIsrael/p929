@@ -23,7 +23,7 @@ import math
 
 # Genesis 1 was read on Sunday, December 21, 2014
 # We set the origin date one day before
-origins = [datetime.date(2014, 12, 20), datetime.date(2018, 7, 14)]
+origins = [datetime.date(2014, 12, 20), datetime.date(2018, 7, 14), datetime(2022, 2, 5)]
 
 """
 "books" is taken from the indexes of http://sefaria.org, with:
